@@ -802,7 +802,7 @@ declare module 'leaflet' {
 
     namespace EditToolbar {
         class Edit extends Toolbar {
-            constructor(map: DrawMap, options?: ToolbarOptions);
+            constructor(map: DrawMap, options?: EditToolbarOptions);
 
             revertLayers(): void;
 
@@ -817,6 +817,21 @@ declare module 'leaflet' {
             save(): void;
 
             removeAllLayers(): void;
+        }
+        
+        interface EditToolbarOptions {
+            edit?: {
+                selectedPathOptions: {
+                    dashArray: string,
+                    fill: boolean,
+                    fillColor: string,
+                    fillOpacity: number,
+                    maintainColor: boolean
+                }
+            },
+            remove?: any,
+            poly?: L.Polygon,
+            featureGroup?: L.FeatureGroup
         }
     }
 
